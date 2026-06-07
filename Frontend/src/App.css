@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family:
+        Inter,
+        Roboto,
+        sans-serif;
+}
+
+body {
+    background: #171717;
+    overflow: hidden;
+}
+
+#root {
+    height: 100vh;
+}
+
+.app {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.app.dark {
+    background: #171717;
+    color: white;
+}
+
+.app.light {
+    background: #f5f7fb;
+    color: #111827;
+}

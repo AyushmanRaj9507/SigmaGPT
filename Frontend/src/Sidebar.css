@@ -1,0 +1,195 @@
+.sidebar {
+    background: linear-gradient(
+        180deg,
+        #111111,
+        #171717,
+        #1d1d1d
+    );
+
+    color: #e5e5e5;
+    height: 100vh;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+/* =========================
+   NEW CHAT BUTTON
+========================= */
+
+.sidebar button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 15px;
+    padding: 14px 16px;
+
+    border-radius: 14px;
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sidebar button:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateY(-2px);
+}
+
+.logo {
+    height: 34px;
+    width: 34px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.sidebar button span {
+    font-size: 18px;
+    color: white;
+}
+
+/* =========================
+   HISTORY SECTION
+========================= */
+
+.history {
+    margin: 10px;
+    padding: 10px;
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* custom scrollbar */
+
+.history::-webkit-scrollbar {
+    width: 6px;
+}
+
+.history::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+}
+
+.history li {
+    list-style: none;
+
+    cursor: pointer;
+
+    padding: 12px 14px;
+    margin-bottom: 8px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: all 0.25s ease;
+
+    position: relative;
+}
+
+.history li:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(3px);
+}
+
+/* active chat */
+
+.highlighted {
+    background: rgba(51,156,255,0.15);
+    border: 1px solid rgba(51,156,255,0.3);
+}
+
+/* =========================
+   DELETE ICON
+========================= */
+
+.fa-trash {
+    opacity: 0;
+
+    position: absolute;
+    right: 12px;
+    top: 50%;
+
+    transform: translateY(-50%);
+    transition: 0.2s;
+}
+
+.history li:hover .fa-trash {
+    opacity: 1;
+}
+
+.fa-trash:hover {
+    color: #ef4444 !important;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.sign {
+    padding: 18px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    background: rgba(255,255,255,0.02);
+}
+
+.sign p {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .sidebar {
+        width: 260px;
+    }
+
+}
+.chatStats {
+    padding: 0 20px;
+    margin-top: 10px;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+.searchBox {
+    padding: 15px;
+}
+
+.searchBox input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.04);
+    color: white;
+    font-size: 14px;
+}
+
+.searchBox input:focus {
+    outline: none;
+    border-color: #339cff;
+}
+
+.version {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #6b7280;
+}

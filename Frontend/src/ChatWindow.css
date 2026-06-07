@@ -1,0 +1,273 @@
+.chatWindow {
+    background: linear-gradient(
+        135deg,
+        #171717,
+        #1f1f1f,
+        #242424
+    );
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    backdrop-filter: blur(20px);
+}
+
+.logoTitle span {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.navActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.themeBtn {
+    border: none;
+    background: rgba(255,255,255,0.08);
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1rem;
+}
+
+.themeBtn:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.15);
+}
+
+.userIconDiv {
+    margin: 0;
+}
+
+.userIcon {
+    background: linear-gradient(
+        135deg,
+        #339cff,
+        #6d5dfc
+    );
+    height: 42px;
+    width: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.userIcon:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   WELCOME SECTION
+========================= */
+
+.welcomeSection {
+    width: 100%;
+    max-width: 900px;
+    margin-top: 3rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.welcomeSection h1 {
+    font-size: 2.7rem;
+    margin-bottom: 0.7rem;
+}
+
+.welcomeSection p {
+    color: #b4b4b4;
+    font-size: 1rem;
+}
+
+/* =========================
+   PROMPT CARDS
+========================= */
+
+.promptCards {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.promptCard {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 18px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: left;
+    font-size: 0.95rem;
+    backdrop-filter: blur(15px);
+}
+
+.promptCard:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.09);
+    border-color: #339cff;
+}
+
+/* =========================
+   CHAT INPUT
+========================= */
+
+.chatInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.inputBox {
+    width: 100%;
+    position: relative;
+    max-width: 850px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.05);
+    color: white;
+    padding: 20px;
+    font-size: 0.95rem;
+    border-radius: 18px;
+    backdrop-filter: blur(20px);
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #339cff;
+    box-shadow: 0 0 20px rgba(51,156,255,0.2);
+}
+
+#submit {
+    cursor: pointer;
+    height: 42px;
+    width: 42px;
+    font-size: 18px;
+    position: absolute;
+    right: 12px;
+    border-radius: 10px;
+    background: #339cff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+}
+
+#submit:hover {
+    transform: scale(1.05);
+}
+
+#submit i {
+    color: white;
+}
+
+.info {
+    margin-top: 10px;
+    font-size: 0.78rem;
+    color: #9b9b9b;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+
+.dropDown {
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    width: 220px;
+    background: #232323;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropDownItem {
+    padding: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.dropDownItem:hover {
+    background: rgba(255,255,255,0.08);
+}
+
+.dropDownItem i {
+    margin-right: 10px;
+}
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .welcomeSection h1 {
+        font-size: 2rem;
+    }
+
+    .promptCards {
+        grid-template-columns: 1fr;
+        padding: 0 15px;
+    }
+
+    .navbar {
+        padding: 14px;
+    }
+
+    .inputBox {
+        width: 95%;
+    }
+}

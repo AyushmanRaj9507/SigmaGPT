@@ -1,0 +1,94 @@
+.chats {
+    width: 100%;
+    max-width: 900px;
+    flex: 1;
+    overflow-y: auto;
+    padding: 30px 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.userDiv {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0;
+}
+
+.gptDiv {
+    display: flex;
+    justify-content: flex-start;
+    margin: 12px 0;
+    text-align: left;
+}
+
+.userMessage {
+    background: #339cff;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 18px;
+    max-width: 75%;
+    word-wrap: break-word;
+    margin-left: auto;
+}
+
+.gptMessage {
+    background: rgba(255,255,255,0.05);
+    padding: 14px 18px;
+    border-radius: 18px;
+    max-width: 75%;
+    line-height: 1.7;
+    overflow-x: auto;
+}
+
+/* markdown */
+
+.gptMessage p {
+    margin: 8px 0;
+}
+
+.gptMessage ul,
+.gptMessage ol {
+    padding-left: 22px;
+}
+
+.gptMessage li {
+    margin: 6px 0;
+}
+
+.gptMessage table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+}
+
+.gptMessage th,
+.gptMessage td {
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 10px;
+    text-align: left;
+}
+
+.gptMessage th {
+    background: rgba(255,255,255,0.08);
+}
+
+.hljs {
+    border-radius: 14px !important;
+}
+
+pre {
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+/* scrollbar */
+
+.chats::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chats::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+}
