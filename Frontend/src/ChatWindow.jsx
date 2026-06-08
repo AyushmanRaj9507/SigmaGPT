@@ -42,7 +42,7 @@ function ChatWindow() {
 
         try {
             const response = await fetch(
-                "http://localhost:8080/api/chat",
+                "https://intellichat-4pya.onrender.com/api/chat",
                 options
             );
 

@@ -20,7 +20,7 @@ function Sidebar() {
     const getAllThreads = async () => {
         try {
             const response = await fetch(
-                "http://localhost:8080/api/thread"
+                "https://intellichat-4pya.onrender.com/api/thread"
             );
 
             const res = await response.json();
@@ -54,7 +54,7 @@ function Sidebar() {
 
         try {
             const response = await fetch(
-                `http://localhost:8080/api/thread/${newThreadId}`
+                `https://intellichat-4pya.onrender.com/api/thread/${newThreadId}`
             );
 
             const res = await response.json();
@@ -71,7 +71,7 @@ function Sidebar() {
     const deleteThread = async (threadId) => {
         try {
             const response = await fetch(
-                `http://localhost:8080/api/thread/${threadId}`,
+                `https://intellichat-4pya.onrender.com/api/thread/${threadId}`,
                 {
                     method: "DELETE"
                 }
