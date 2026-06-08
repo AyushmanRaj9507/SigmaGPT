@@ -154,7 +154,9 @@ function Sidebar() {
                                     : ""
                             }
                         >
-                            {thread.title}
+                            <span className="threadTitle">
+                                {thread.title}
+                            </span>
 
                             <i
                                 className="fa-solid fa-trash"
@@ -174,12 +176,13 @@ function Sidebar() {
 
             <div className="sign">
                 <p>
-                    SigmaGPT ⚡
+                    IntelliChat ⚡
                 </p>
-
                 <p className="version">
-                    Groq Powered
+                    Powered by Groq ...
                 </p>
+                <br></br>
+                <p>© 2026 Ayushman Raj</p>
             </div>
 
         </section>

@@ -3,6 +3,7 @@ import Chat from "./Chat.jsx";
 import { MyContext } from "./MyContext.jsx";
 import { useContext, useState, useEffect } from "react";
 import { ScaleLoader } from "react-spinners";
+import { useRef } from "react";
 
 function ChatWindow() {
     const {
@@ -20,6 +21,7 @@ function ChatWindow() {
 
     const [loading, setLoading] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef(null);
 
     const getReply = async () => {
         if (!prompt.trim()) return;
@@ -54,6 +56,20 @@ function ChatWindow() {
     };
 
     useEffect(() => {
+        const handleClickOutside = (e) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
         if (prompt && reply) {
             setPrevChats(prevChats => [
                 ...prevChats,
@@ -71,6 +87,86 @@ function ChatWindow() {
         setPrompt("");
     }, [reply]);
 
+    
+    const downloadChat = () => {
+        setIsOpen(false);
+
+        let textContent = "";
+
+        prevChats.forEach((chat) => {
+            textContent += `${chat.role.toUpperCase()}: ${chat.content}\n\n`;
+        });
+
+        const blob = new Blob([textContent], {
+            type: "text/plain;charset=utf-8"
+        });
+
+        const url = URL.createObjectURL(blob);
+
+        const a = document.createElement("a");
+        a.href = url;
+
+        a.download = `chat_${Date.now()}.txt`;
+
+        document.body.appendChild(a);
+        a.click();
+
+        document.body.removeChild(a);
+
+        URL.revokeObjectURL(url);
+    };
+
+    const exportToPDF = async () => {
+        setIsOpen(false);
+
+        const { jsPDF } = await import("jspdf");
+        const doc = new jsPDF();
+
+        doc.setFont("helvetica");
+        doc.setFontSize(12);
+
+        let y = 10;
+
+        prevChats.forEach((chat) => {
+            const role = chat.role.toUpperCase();
+            const text = `${role}: ${chat.content}`;
+
+            const lines = doc.splitTextToSize(text, 180);
+
+            doc.text(lines, 10, y);
+
+            y += lines.length * 7;
+
+            if (y > 270) {
+                doc.addPage();
+                y = 10;
+            }
+        });
+
+        doc.save(`chat_${Date.now()}.pdf`);
+    };
+
+    const handleSettings = () => {
+        setIsOpen(false);
+        alert("Settings page open (you can build later)");
+    };
+
+    const handleUpgrade = () => {
+        setIsOpen(false);
+        alert("Upgrade plan page (coming soon)");
+    };
+
+    const handleLogout = () => {
+        setIsOpen(false);
+
+        setPrevChats([]);
+        setPrompt("");
+        setReply("");
+
+        localStorage.clear();
+
+        window.location.href = "/login";
+    };
     const handleProfileClick = () => {
         setIsOpen(!isOpen);
     };
@@ -83,7 +179,7 @@ function ChatWindow() {
             <div className="navbar">
 
                 <div className="logoTitle">
-                    <span>✨ SigmaGPT</span>
+                    <span>✨ IntelliChat</span>
                 </div>
 
                 <div className="navActions">
@@ -119,21 +215,25 @@ function ChatWindow() {
 
             {
                 isOpen &&
-                <div className="dropDown">
+                <div className="dropDown" ref={dropdownRef}>
 
-                    <div className="dropDownItem">
-                        <i className="fa-solid fa-gear"></i>
-                        Settings
+                     <div className="dropDownItem" onClick={exportToPDF}>
+                        📄 Export Chat to PDF
                     </div>
 
-                    <div className="dropDownItem">
+                    <div className="dropDownItem" onClick={downloadChat}>
+                        ⬇️ Download Chat (Text File)
+                    </div>
+
+
+                    <div className="dropDownItem" onClick={handleUpgrade}>
                         <i className="fa-solid fa-cloud-arrow-up"></i>
                         Upgrade Plan
                     </div>
 
-                    <div className="dropDownItem">
+                    <div className="dropDownItem" onClick={handleLogout}>
                         <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                        Logout
+                            🚪 Logout
                     </div>
 
                 </div>
@@ -147,7 +247,7 @@ function ChatWindow() {
                     <div className="welcomeSection">
 
                         <h1>
-                            Welcome to SigmaGPT 🚀
+                            Welcome to IntelliChat 🚀
                         </h1>
 
                         <p>
@@ -242,7 +342,7 @@ function ChatWindow() {
                 </div>
 
                 <p className="info">
-                    SigmaGPT can make mistakes.
+                    IntelliChat can make mistakes.
                     Verify important information.
                 </p>
 
