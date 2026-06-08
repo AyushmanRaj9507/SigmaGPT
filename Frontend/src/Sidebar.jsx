@@ -107,17 +107,24 @@ function Sidebar() {
 
             <div>
 
-                <button onClick={createNewChat}>
-                    <img
-                        src="src/assets/blacklogo.png"
-                        alt="gpt logo"
-                        className="logo"
-                    />
+                <button className="newChatBtn" onClick={createNewChat}
+                    >
+                        <div className="newChatLeft">
 
-                    <span>
-                        <i className="fa-solid fa-pen-to-square"></i>
-                    </span>
-                </button>
+                            <img
+                                src="src/assets/blacklogo.png"
+                                alt="logo"
+                                className="logo"
+                            />
+
+                            <span>New Chat</span>
+
+                        </div>
+
+                        <div className="newChatRight">
+                            <i className="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </button>
 
                 <div className="chatStats">
                     Chats ({allThreads.length})

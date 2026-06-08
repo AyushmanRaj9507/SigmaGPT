@@ -304,3 +304,72 @@ input:focus {
     border-left: 3px solid orange;
     background: rgba(255, 165, 0, 0.08);
 }
+/* DARK MODE */
+
+.chatWindow.dark {
+    background: linear-gradient(
+        135deg,
+        #171717,
+        #1f1f1f,
+        #242424
+    );
+    color: white;
+}
+
+/* LIGHT MODE */
+
+.chatWindow.light {
+    background: linear-gradient(
+        135deg,
+        #f8fafc,
+        #eef2ff,
+        #ffffff
+    );
+    color: #111827;
+}
+.chatWindow.light .navbar {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.chatWindow.dark .navbar {
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.chatWindow.light input {
+    background: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.chatWindow.dark input {
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+.chatWindow.light input {
+    background: white;
+    color: #111827;
+    border: 1px solid #d1d5db;
+}
+
+.chatWindow.dark input {
+    background: rgba(255,255,255,0.05);
+    color: white;
+}
+.chatWindow.light .promptCard {
+    background: white;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+}
+
+.chatWindow.light .promptCard:hover {
+    background: #f9fafb;
+}
+.chatWindow.light .dropDown {
+    background: white;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+}
+
+.chatWindow.dark .dropDown {
+    background: #232323;
+    color: white;
+}

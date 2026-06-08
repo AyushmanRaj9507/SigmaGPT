@@ -172,7 +172,7 @@ function ChatWindow() {
     };
 
     return (
-        <div className="chatWindow">
+        <div className={`chatWindow ${theme}`}>
 
             {/* NAVBAR */}
 
