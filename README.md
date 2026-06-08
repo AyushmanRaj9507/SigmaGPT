@@ -1,52 +1,36 @@
 # IntelliChat 🚀
-A MERN based ChatGPT replica implemented from scratch using OpenAI.
 
-A modern AI chatbot built using React, Node.js, Express and Groq API.
+AI-powered chatbot built using React, Node.js, MongoDB and Groq AI.
 
 ## Features
 
-- Multi-thread conversations
-- Dark / Light theme
-- Search chats
-- Delete chats
-- Export chats to PDF
-- Download chats as TXT
-- Responsive UI
-- Chat history persistence
-- Groq AI integration
+- AI Chat with Groq
+- Chat History
+- Multiple Threads
+- PDF Export
+- Dark / Light Theme
+- Responsive Design
+- Search Chats
+- Delete Chats
 
 ## Tech Stack
 
 Frontend:
 - React
-- Context API
+- Vite
 - CSS
 
 Backend:
 - Node.js
-- Express
-
-Database:
+- Express.js
 - MongoDB
 
 AI:
 - Groq API
 
-## Installation
+## Live Demo
 
-### Frontend
-
-npm install
-npm run dev
-
-### Backend
-
-npm install
-npm run start
-
-## Screenshots
-
-(Add screenshots here)
+https://intelli-chat-liart.vercel.app/
 
 ## Author
 
